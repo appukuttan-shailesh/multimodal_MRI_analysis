@@ -16,8 +16,7 @@ t_r = 1.12
 
 #%%
 
-my_fmri_path = "C:\\Users\\andre\\Desktop\\sub-010\\sub-010_ses-02_task-03ArchiLocalizer_hemi-L_space-fsnative_bold.func.gii"
-
+my_fmri_path = "C:\\Users\\andre\\Desktop\\sub-011\\sub-011_ses-02_task-03ArchiLocalizer_hemi-R_space-fsnative_bold.func.gii"
 #load image
 my_fmri = nb.load(my_fmri_path)
 data_hemi = [x.data for x in my_fmri.darrays]
@@ -33,7 +32,7 @@ data_hemi = np.vstack(data_hemi)
 
 import pandas as pd
 
-events_path = "C:\\Users\\andre\\Desktop\\sub-010\\events_labelled_no_rest.xlsx"
+events_path = "C:\\Users\\andre\\Desktop\\sub-011\\events_labelled_no_rest.xlsx"
 
 events = pd.read_excel(events_path)
 events.drop(columns='Unnamed: 0', inplace=True)
@@ -43,7 +42,7 @@ events.drop(columns='Unnamed: 0', inplace=True)
 import nilearn
 #sub-010_hemi-L_inflated.surf.gii
 #sub-010_hemi-L_pial.surf.gii
-surface_path = "C:\\Users\\andre\\Desktop\\sub-010\\sub-010_hemi-L_inflated.surf.gii"
+surface_path = "C:\\Users\\andre\\Desktop\\sub-011\\sub-011_ses-02_hemi-R_inflated.surf.gii"
 my_surface = load_surf_mesh(surface_path)
 
 
@@ -59,7 +58,7 @@ frame_times = t_r * (np.arange(n_scans) + .5)
 
 #%%
 
-confound = pd.read_excel("C:\\Users\\andre\\Desktop\\sub-010\\confoundss.xlsx")
+confound = pd.read_excel("C:\\Users\\andre\\Desktop\\sub-011\\confounds.xlsx")
 
 confounds_of_interest = ['trans_x', 'trans_y', 'trans_z', 'rot_x', 'rot_y', 'rot_z',
                          'trans_x_derivative1', 'trans_x_power2',
@@ -141,12 +140,13 @@ contrast = compute_contrast(labels, estimates, comp_sent,
                             contrast_type='t')
 z_score = contrast.z_score()
 
-#infl_left = "C:\\Users\\andre\\Desktop\\sub-010\\sub-010_hemi-L_inflated.surf.gii"
-#curv_right_sign = np.sign(curv_right)
+bg_path = "C:\\Users\\andre\\Desktop\\sub-011\\sub-011_ses-02_hemi-R_curv.shape.gii"
+
 plotting.plot_surf_stat_map(
-        surface_path, z_score, hemi='left',
+
+        surface_path, z_score, hemi='right',
         title='c-s', colorbar=True,
-        threshold=3.0)
+        threshold=3.0, bg_map=bg_path)
 
 plotting.show()
 
