@@ -1,7 +1,5 @@
-import numpy as np
-
 # subjects indices from 1 to 11
-subs = np.arange(1,12)
+subs = range(1,12)
 
 # global parameters
 sing_version = '23.2.0'
