@@ -7,14 +7,17 @@
 - copy files to mesocentre: `scp -rp -P 8822 <local_path_to_filename> <username>@login.mesocentre.univ-amu.fr:/scratch/mgilson/braint/<remote_path>`
 
 - [TODO] copy file from envau via pharo/niolon
+    - add ssh key for mesocentre (cf. [https://mesocentre.univ-amu.fr/copernicus](https://mesocentre.univ-amu.fr/copernicus)) to `~/.ssh/` in home directory in pharo/niolon
+    - if needed, start ssh agent with `eval "$(ssh-agent)"` and add key with `ssh-add ~/.ssh/<key_file>`
 
-- make alias to mount/unmount remote directory (copy lines to .bashrc) using sshfs on ubuntu:
-    - `alias mmeso='sshfs -p 8822 <username>@login.mesocentre.univ-amu.fr:/scratch/mgilson/braint/ -o auto_cache,reconnect <local_mount_dir>'`
-    - `alias umeso='fusermount -u <local_mount_dir>'`
+- make aliases to mount/unmount remote directory (copy lines to .bashrc) using sshfs on ubuntu
+    - mount: `alias mmeso='sshfs -p 8822 <username>@login.mesocentre.univ-amu.fr:/scratch/mgilson/braint/ -o auto_cache,reconnect <local_mount_dir>'`
+    - unmount: `alias umeso='fusermount -u <local_mount_dir>'`
+    - if needed, install sshfs with apt or apt-get (sudo mode)
 
 - change file permissions of generated files to allow access for all group members:
-    - chmod -Rf 771 /scratch/mgilson/braint
-    - chgrp -Rf 347 /scratch/mgilson/braint
+    - `chmod -Rf 771 /scratch/mgilson/braint`
+    - `chgrp -Rf 347 /scratch/mgilson/braint`
 
 ## Preparation for fmriprep
 
