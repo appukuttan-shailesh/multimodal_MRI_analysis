@@ -2,13 +2,13 @@
 
 ## File transfer and management at mesocentre
 
-- copy fmriprep output files from mesocentre: `scp -rp -P 8822 <username>@login.mesocentre.univ-amu.fr:/scratch/mgilson/braint/derivatives/fmriprep/<filename> <loca_dir>`
-
-- copy files to mesocentre: `scp -rp -P 8822 <local_path_to_filename> <username>@login.mesocentre.univ-amu.fr:/scratch/mgilson/braint/<remote_path>`
-
-- [TODO] copy file from envau via pharo/niolon
+- identification to transfer files (also works with pharo/niolon to store on envau)
     - add ssh key for mesocentre (cf. [https://mesocentre.univ-amu.fr/copernicus](https://mesocentre.univ-amu.fr/copernicus)) to `~/.ssh/` in home directory in pharo/niolon
     - if needed, start ssh agent with `eval "$(ssh-agent)"` and add key with `ssh-add ~/.ssh/<key_file>`
+
+- use `scp` or `rsync` to transfer files, for example
+    - copy fmriprep output files from mesocentre: `scp -rp -P 8822 <username>@login.mesocentre.univ-amu.fr:/scratch/mgilson/braint/derivatives/fmriprep/<filename> <loca_dir>`
+    - copy files to mesocentre: `scp -rp -P 8822 <local_path_to_filename> <username>@login.mesocentre.univ-amu.fr:/scratch/mgilson/braint/<remote_path>`
 
 - make aliases to mount/unmount remote directory (copy lines to .bashrc) using sshfs on ubuntu
     - mount: `alias mmeso='sshfs -p 8822 <username>@login.mesocentre.univ-amu.fr:/scratch/mgilson/braint/ -o auto_cache,reconnect <local_mount_dir>'`
