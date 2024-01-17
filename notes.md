@@ -6,6 +6,8 @@
 
 - copy files to mesocentre: `scp -rp -P 8822 <local_path_to_filename> <username>@login.mesocentre.univ-amu.fr:/scratch/mgilson/braint/<remote_path>`
 
+- [TODO] copy file from envau via pharo/niolon
+
 - make alias to mount/unmount remote directory (copy lines to .bashrc) using sshfs on ubuntu:
     - `alias mmeso='sshfs -p 8822 <username>@login.mesocentre.univ-amu.fr:/scratch/mgilson/braint/ -o auto_cache,reconnect <local_mount_dir>'`
     - `alias umeso='fusermount -u <local_mount_dir>'`
