@@ -2,9 +2,9 @@
 
 ## File transfer and management at mesocentre
 
-- copy fmriprep output files from mesocentre: `scp -rp -P 8822 <username>@login.mesocentre.univ-amu.fr:/scratch/braint/derivatives/fmriprep/<filename> <loca_dir>`
+- copy fmriprep output files from mesocentre: `scp -rp -P 8822 <username>@login.mesocentre.univ-amu.fr:/scratch/mgilson/braint/derivatives/fmriprep/<filename> <loca_dir>`
 
-- copy files to mesocentre: `scp -rp -P 8822 <local_path_to_filename> <username>@login.mesocentre.univ-amu.fr:/scratch/braint/<remote_path>`
+- copy files to mesocentre: `scp -rp -P 8822 <local_path_to_filename> <username>@login.mesocentre.univ-amu.fr:/scratch/mgilson/braint/<remote_path>`
 
 - make alias to mount/unmount remote directory (copy lines to .bashrc) using sshfs on ubuntu:
     - `alias mmeso='sshfs -p 8822 <username>@login.mesocentre.univ-amu.fr:/scratch/mgilson/braint/ -o auto_cache,reconnect <local_mount_dir>'`
