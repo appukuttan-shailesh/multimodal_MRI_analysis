@@ -31,7 +31,7 @@
 
 ## Launching jobs on mesocentre using slurm
 
-- go to '/scratch/mgilson/braint/code/job_launch/' and simply execute `sbatch sub-<idx>_fmriprep.sh` with the index *idx* of the subject
+- go to '/scratch/mgilson/braint/code/job_launch/' and simply execute `sbatch sub-<idx>_fmriprep.sh` with the index `<idx>` of the subject
     - new launch scripts 'sub-<idx>_fmriprep.sh' for new subjects can be generated using [gen_launch_scripts.py](https://github.com/brainets/multimodal_MRI_analysis/blob/main/preproc/gen_launch_scripts.py)
     - check progress using `squeue -u <username>` (your login for mesocentre)
     - further information: [link to mesocentre website](https://mesocentre.univ-amu.fr/slurm/)
