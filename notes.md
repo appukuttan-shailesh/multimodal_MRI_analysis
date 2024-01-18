@@ -18,7 +18,7 @@
 
 - change file permissions of generated files to allow access for all group members:
     - `chmod -Rf 771 /scratch/mgilson/braint`
-    - `chgrp -Rf <gp_id> /scratch/mgilson/braint` where `gp_id` is the group number, 347 for BraINT
+    - `chgrp -Rf <gp_id> /scratch/mgilson/braint` where `<gp_id>` is the group number, 347 for BraINT
 
 ## Preparation for fmriprep
 
